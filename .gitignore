@@ -1,0 +1,17 @@
+# Godot 4+ specific ignores
+/android/
+.import/
+.godot/
+
+# Mono (si tu n'utilises pas C#)
+.mono/
+
+# Exported files
+*.exe
+*.apk
+*.x86_64
+*.zip
+
+# OS
+.DS_Store
+Thumbs.db
