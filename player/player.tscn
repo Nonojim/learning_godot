@@ -3,6 +3,29 @@
 [ext_resource type="Texture2D" uid="uid://bpm5v8dow85jq" path="res://assets/player/player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://g46dee85n6yw" path="res://player/player.gd" id="1_rkbax"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8t03j"]
+animation = &"attack_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ieo8"]
+animation = &"attack_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ebec5"]
+animation = &"attack_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yllr7"]
+animation = &"attack_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_kb6p2"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_8t03j")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_2ieo8")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_ebec5")
+blend_point_2/pos = Vector2(-0.90000004, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_yllr7")
+blend_point_3/pos = Vector2(0.90000004, 0)
+blend_mode = 1
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rkbax"]
 animation = &"run_up"
 
@@ -67,19 +90,27 @@ states/RunState/position = Vector2(412, 195)
 states/StandState/node = SubResource("AnimationNodeBlendSpace2D_boad6")
 states/StandState/position = Vector2(412, 100)
 transitions = ["Start", "StandState", SubResource("AnimationNodeStateMachineTransition_rgyib"), "StandState", "RunState", SubResource("AnimationNodeStateMachineTransition_2ieo8"), "RunState", "StandState", SubResource("AnimationNodeStateMachineTransition_ebec5")]
-graph_offset = Vector2(17, -90)
+graph_offset = Vector2(9, 18)
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8t03j"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wodsf"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_32hag"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2ieo8"]
+states/AttackState/node = SubResource("AnimationNodeBlendSpace2D_kb6p2")
+states/AttackState/position = Vector2(425, 173)
 states/MoveState/node = SubResource("AnimationNodeStateMachine_hg6s5")
 states/MoveState/position = Vector2(425, 100)
-transitions = ["Start", "MoveState", SubResource("AnimationNodeStateMachineTransition_8t03j")]
-graph_offset = Vector2(174.49371, 0)
+transitions = ["Start", "MoveState", SubResource("AnimationNodeStateMachineTransition_8t03j"), "MoveState", "AttackState", SubResource("AnimationNodeStateMachineTransition_wodsf"), "AttackState", "MoveState", SubResource("AnimationNodeStateMachineTransition_32hag")]
+graph_offset = Vector2(90.49371, 42)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ebec5"]
-graph_offset = Vector2(-173.16528, 30.528923)
+graph_offset = Vector2(-262.2972, 100.86659)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_2ieo8")
 nodes/StateMachine/position = Vector2(20, 160)
 node_connections = [&"output", 0, &"StateMachine"]
@@ -97,6 +128,74 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_kb6p2"]
+resource_name = "attack_down"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39]
+}
+
+[sub_resource type="Animation" id="Animation_ebec5"]
+resource_name = "attack_left"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35]
+}
+
+[sub_resource type="Animation" id="Animation_2ieo8"]
+resource_name = "attack_right"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27]
+}
+
+[sub_resource type="Animation" id="Animation_yllr7"]
+resource_name = "attack_up"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [28, 29, 30, 31]
 }
 
 [sub_resource type="Animation" id="Animation_qjkh3"]
@@ -242,6 +341,10 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yw30f"]
 _data = {
 &"RESET": SubResource("Animation_rkbax"),
+&"attack_down": SubResource("Animation_kb6p2"),
+&"attack_left": SubResource("Animation_ebec5"),
+&"attack_right": SubResource("Animation_2ieo8"),
+&"attack_up": SubResource("Animation_yllr7"),
 &"run_down": SubResource("Animation_qjkh3"),
 &"run_left": SubResource("Animation_g6k8r"),
 &"run_right": SubResource("Animation_yw30f"),
@@ -265,6 +368,7 @@ root_node = NodePath("../Sprite2D")
 tree_root = SubResource("AnimationNodeBlendTree_ebec5")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
+parameters/StateMachine/AttackState/blend_position = Vector2(-0.002262473, -0.109004736)
 parameters/StateMachine/MoveState/RunState/blend_position = Vector2(0, -0.09565222)
 parameters/StateMachine/MoveState/StandState/blend_position = Vector2(-0.00073581934, -0.118840575)
 
