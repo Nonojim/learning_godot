@@ -2,8 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://5tr45btq5oky" path="res://assets/world/grass_background.png" id="1_sl2e5"]
 [ext_resource type="PackedScene" uid="uid://bxefqxousbivb" path="res://scenes/player/player.tscn" id="2_1fp7r"]
+[ext_resource type="PackedScene" uid="uid://bufbt7anhd512" path="res://scenes/world/tree.tscn" id="2_6m72w"]
+[ext_resource type="PackedScene" uid="uid://b8plne0du24pa" path="res://scenes/world/bush.tscn" id="3_1fp7r"]
 
 [node name="World" type="Node2D" unique_id=314225402]
+y_sort_enabled = true
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=943480189]
 repeat_size = Vector2(320, 180)
@@ -16,3 +19,45 @@ stretch_mode = 1
 
 [node name="Player" parent="." unique_id=1907927267 instance=ExtResource("2_1fp7r")]
 position = Vector2(160, 90)
+
+[node name="tree" parent="." unique_id=813046597 instance=ExtResource("2_6m72w")]
+position = Vector2(248, 109)
+
+[node name="Bush" parent="." unique_id=1173007788 instance=ExtResource("3_1fp7r")]
+position = Vector2(63, 282)
+
+[node name="Bush2" parent="." unique_id=1515635587 instance=ExtResource("3_1fp7r")]
+position = Vector2(57, 194)
+
+[node name="Bush3" parent="." unique_id=2023487314 instance=ExtResource("3_1fp7r")]
+position = Vector2(90, 216)
+
+[node name="Bush4" parent="." unique_id=492503036 instance=ExtResource("3_1fp7r")]
+position = Vector2(400, 135)
+
+[node name="Bush5" parent="." unique_id=1192312051 instance=ExtResource("3_1fp7r")]
+position = Vector2(319, 38)
+
+[node name="Bush6" parent="." unique_id=1172379804 instance=ExtResource("3_1fp7r")]
+position = Vector2(401, 216)
+
+[node name="Bush7" parent="." unique_id=206940733 instance=ExtResource("3_1fp7r")]
+position = Vector2(232, 301)
+
+[node name="Bush8" parent="." unique_id=597598650 instance=ExtResource("3_1fp7r")]
+position = Vector2(516, 287)
+
+[node name="Bush9" parent="." unique_id=1510305551 instance=ExtResource("3_1fp7r")]
+position = Vector2(582, 217)
+
+[node name="Bush10" parent="." unique_id=637057387 instance=ExtResource("3_1fp7r")]
+position = Vector2(626, 11)
+
+[node name="Bush11" parent="." unique_id=277701163 instance=ExtResource("3_1fp7r")]
+position = Vector2(70, 75)
+
+[node name="Bush12" parent="." unique_id=1792341589 instance=ExtResource("3_1fp7r")]
+position = Vector2(211, 48)
+
+[node name="Bush13" parent="." unique_id=1083147210 instance=ExtResource("3_1fp7r")]
+position = Vector2(230, 159)

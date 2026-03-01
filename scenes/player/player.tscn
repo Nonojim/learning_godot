@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bpm5v8dow85jq" path="res://assets/player/player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://g46dee85n6yw" path="res://scripts/player.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://1wa0k1560gkh" path="res://assets/shadows/medium_shadow.png" id="3_gmlin"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8t03j"]
 animation = &"attack_up"
@@ -458,11 +459,16 @@ _data = {
 &"stand_up": SubResource("Animation_8t03j")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
+radius = 4.2
+height = 12.5
+
 [node name="Player" type="CharacterBody2D" unique_id=1907927267]
 motion_mode = 1
 script = ExtResource("1_rkbax")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=759729784]
+position = Vector2(0, -8)
 texture = ExtResource("1_oul6g")
 hframes = 60
 
@@ -481,5 +487,15 @@ root_node = NodePath("../Sprite2D")
 libraries/ = SubResource("AnimationLibrary_yw30f")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=772842876]
+position = Vector2(0, -8)
 process_callback = 0
 position_smoothing_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1257240716]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_dovo2")
+
+[node name="ShadowSprite2D" type="Sprite2D" parent="." unique_id=215049693]
+show_behind_parent = true
+position = Vector2(0, 3)
+texture = ExtResource("3_gmlin")
