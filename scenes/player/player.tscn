@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bxefqxousbivb"]
 
 [ext_resource type="Texture2D" uid="uid://bpm5v8dow85jq" path="res://assets/player/player.png" id="1_oul6g"]
-[ext_resource type="Script" uid="uid://g46dee85n6yw" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Script" uid="uid://g46dee85n6yw" path="res://scripts/player.gd" id="1_rkbax"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8t03j"]
 animation = &"attack_up"
