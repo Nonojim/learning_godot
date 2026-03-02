@@ -5,9 +5,26 @@ const ROLLSPEED = 125.0
 
 var input_vector := Vector2.ZERO ## object scope
 var last_input_vector := Vector2.ZERO
-
+var target_scale := 1.0
 @onready var animation_tree: AnimationTree = $AnimationTree ## shortcut for get_node("AnimationTree")
 @onready var playback = animation_tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback
+@onready var tilemap = get_parent().get_node("GroundLayer/CliffTileMapLayer")
+
+func _process(delta):
+	var cell = tilemap.local_to_map(global_position)
+	var tile_data = tilemap.get_cell_tile_data(cell)
+	if tile_data and tile_data.get_custom_data("hill") == true:
+		##$Sprite2D.scale = Vector2(1.3, 1.3)
+		print("CUSTOMDATA :", tile_data.get_custom_data("hill"))
+		print("CELL :", cell)
+		print("TILE DATA :", tile_data)
+		target_scale = 2.0
+	else:
+		target_scale = 1.0
+
+		##$Sprite2D.scale = Vector2(1.0, 1.0)
+
+	$Sprite2D.scale = $Sprite2D.scale.lerp(Vector2(target_scale, target_scale), 3 * delta)
 
 ##internal fn start by _
 func _physics_process(_delta: float) -> void: ## ici delta precede underscore pour (void)delta
@@ -33,7 +50,7 @@ func move_state(_delta: float) -> void:
 func roll_state(_delta: float) -> void:
 	if last_input_vector == Vector2.ZERO:
 		last_input_vector = Vector2(0.0, 1.0)
-	velocity = last_input_vector * ROLLSPEED
+	velocity = last_input_vector.normalized() * ROLLSPEED
 	move_and_slide()
 
 
