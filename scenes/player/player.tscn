@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bxefqxousbivb"]
 
-[ext_resource type="Texture2D" uid="uid://bpm5v8dow85jq" path="res://assets/player/player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://g46dee85n6yw" path="res://scripts/player.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://dp6r73iqfsace" path="res://assets/private/Walk_Sprite/Sprite/Game_Project_Character_01-Sidewalk.png" id="2_gmlin"]
 [ext_resource type="Texture2D" uid="uid://1wa0k1560gkh" path="res://assets/shadows/medium_shadow.png" id="3_gmlin"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8t03j"]
@@ -142,13 +142,13 @@ transitions = ["Start", "MoveState", SubResource("AnimationNodeStateMachineTrans
 graph_offset = Vector2(81.49371, -15)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ebec5"]
-graph_offset = Vector2(-269.1946, 13.374161)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_2ieo8")
 nodes/StateMachine/position = Vector2(20, 160)
 node_connections = [&"output", 0, &"StateMachine"]
 
 [sub_resource type="Animation" id="Animation_rkbax"]
 length = 0.1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -159,7 +159,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [1]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -378,7 +378,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_g6k8r"]
 resource_name = "run_left"
-length = 0.6
+length = 0.3
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -391,7 +391,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [13, 14, 15, 16, 17, 12]
+"values": [0, 1, 2, 16, 17, 12]
 }
 
 [sub_resource type="Animation" id="Animation_yw30f"]
@@ -529,8 +529,10 @@ script = ExtResource("1_rkbax")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=759729784]
 position = Vector2(0, -8)
-texture = ExtResource("1_oul6g")
-hframes = 60
+texture = ExtResource("2_gmlin")
+hframes = 2
+vframes = 2
+frame = 1
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=190653223]
 root_node = NodePath("../Sprite2D")
