@@ -40,6 +40,10 @@ func move_state(_delta: float) -> void:
 	if input_vector != Vector2.ZERO:
 		last_input_vector = input_vector
 		var direction_vector := Vector2(input_vector.x, -input_vector.y)
+		if input_vector.x <= 0:
+			$Sprite2D.flip_h = false
+		if input_vector.x > 0:
+			$Sprite2D.flip_h = true
 		update_blend_position(direction_vector)
 	if Input.is_action_just_pressed("attack"):
 		playback.travel("AttackState")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ueaoafp36dgg"
-path="res://.godot/imported/Game_Project_Character_01-Quartwalk.png-63db7f3a6ded9c7c9662cb68480e89c5.ctex"
+uid="uid://dusvt3hjoikkm"
+path="res://.godot/imported/player_walk.png-27637ea9520ee75a07a22909f6500231.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/private/Walk_Sprite/Sprite/Game_Project_Character_01-Quartwalk.png"
-dest_files=["res://.godot/imported/Game_Project_Character_01-Quartwalk.png-63db7f3a6ded9c7c9662cb68480e89c5.ctex"]
+source_file="res://assets/private/player/player_walk.png"
+dest_files=["res://.godot/imported/player_walk.png-27637ea9520ee75a07a22909f6500231.ctex"]
 
 [params]
 
