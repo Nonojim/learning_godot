@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b8plne0du24pa" path="res://scenes/world/bush.tscn" id="3_1fp7r"]
 [ext_resource type="TileSet" uid="uid://baestrm3ohd54" path="res://assets/world/cliff_tileset.tres" id="3_bq33v"]
 [ext_resource type="PackedScene" uid="uid://bltvp58wornb5" path="res://scenes/world/grass.tscn" id="4_bq33v"]
+[ext_resource type="PackedScene" uid="uid://djg6t3arguxya" path="res://scenes/bat/bat.tscn" id="8_j2gmx"]
 
 [node name="World" type="Node2D" unique_id=314225402]
 y_sort_enabled = true
@@ -93,3 +94,9 @@ position = Vector2(211, 48)
 
 [node name="Bush13" parent="." unique_id=1083147210 instance=ExtResource("3_1fp7r")]
 position = Vector2(230, 159)
+
+[node name="BatEnemy" parent="." unique_id=1889488615 instance=ExtResource("8_j2gmx")]
+position = Vector2(211, 238)
+
+[node name="BatEnemy2" parent="." unique_id=258156522 instance=ExtResource("8_j2gmx")]
+position = Vector2(93, 161)
